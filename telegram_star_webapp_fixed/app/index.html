@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Star Unlock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+      body { font-family: sans-serif; text-align: center; padding: 40px; }
+      img { max-width: 100%; border-radius: 12px; }
+      button {
+        padding: 10px 20px;
+        background-color: #0088cc;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>画像を解除する</h1>
+    <img id="product-image" src="/public/locked.jpg" alt="Locked Image" />
+    <br />
+    <button onclick="unlock()">スターで解除（5個）</button>
+
+    <script>
+      const tg = window.Telegram.WebApp;
+      tg.expand();
+
+      function unlock() {
+        document.getElementById("product-image").src = "/public/unlocked.jpg";
+        Telegram.WebApp.showAlert("解除されました！（仮）");
+      }
+    </script>
+  </body>
+</html>
